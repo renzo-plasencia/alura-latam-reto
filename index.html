@@ -6,6 +6,7 @@
     <title>Encriptador Reto Alura</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/jpg" href="assets/favicon.svg"/>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="logo">
@@ -13,24 +14,38 @@
     </div>
     <div class="encriptador">
         <div class="encriptador__texto">
-            <textarea placeholder="Ingrese el texto aqui"></textarea>
+            <textarea id="input_text" placeholder="Ingrese el texto aqui"></textarea>
         </div>
         <div class="alert">
             <img src="./assets/alert.svg" alt="ícono alerta">
             <p>Solo letras minúsculas y sin acentos</p>
         </div>
         <div class="encriptador__buttons">
-            <button id="button_dark">Encriptar</button>
-            <button id="button_light">Desencriptar</button>
+            <button id="button_dark" onclick="encriptarTexto()">Encriptar</button>
+            <button id="button_light" onclick="desencriptarTexto()">Desencriptar</button>
         </div>
     </div>
-    <div class="mensaje-final">
-        <div class="mensaje-final__content">
-            <img src="./assets/Muñeco.png" alt="Muñeco explorador">
-            <h2>Ningún mensaje fue encontrado</h2>
-            <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+    <div class="msg">
+        <div class="msg__placeholder" id="mensaje-final__content_id">
+            <div class="msg__placeholder-image">
+                <img src="./assets/Muñeco.png" alt="Muñeco explorador">
+            </div>
+            <div class="msg__placeholder-text">
+                <h2>Ningún mensaje fue encontrado</h2>
+                <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+            
+        </div>
+        <div class="msg__converted" id="mensaje-final__encript_id">
+            <div class="msg__converted-text">
+                <textarea id="mensaje-final__texto" readonly="readonly"></textarea>
+            </div>
+            <div class="msg__converted-copy">
+                <!-- <span>a</span> -->
+                <button id="copiar" onclick="copiarText()">Copiar</button>
+            </div>
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+
 </html>

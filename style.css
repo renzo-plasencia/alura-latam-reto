@@ -5,7 +5,11 @@
     --fondo: #F3F5FC;
     --sombra-main: 0 24px 32px -8px rgba(0, 0, 0, 0.08);
     --dark-blue: #0A3871;
+    --dark-blue-hover: #0E4993;
     --light-blue: #D8DFE8;
+
+    --gray-400: #495057;
+    --hover-transparent: #F6F8FF;
     --inter: "Inter", sans-serif;
     font-family: "Inter", sans-serif;
 }
@@ -96,44 +100,272 @@ body {
 #button_dark{
     color: var(--blanco);
     background-color: var(--dark-blue);
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+#button_dark:hover{
+    background-color: var(--dark-blue-hover);
+    transition: 0.3s;
+    font-size: 1rem;
 }
 
 #button_light{
     color: var(--dark-blue);
-    background-color: var(--light-blue);
+    background-color: transparent;
+    transition: 0.3s;
 }
 
+#button_light:hover{
+    transition: 0.3s;
+    background-color: var(--hover-transparent);
+}
 
-.mensaje-final {
+.msg{
     width: 400px;
     height: 92%;
     background-color: var(--blanco);
     border-radius: 32px;
     box-shadow: var(--sombra-main);
+    position: relative;
+}
+
+.msg__placeholder{
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.mensaje-final__content{
-    padding: 5rem 2rem;
     text-align: center;
+    gap: 2rem;
+    padding: 0 2rem;
+    height: 100%;    
 }
 
-.mensaje-final img {
+.msg__placeholder-image img {
     width: 90%;
 }
 
-.mensaje-final h2{
+.msg__placeholder-image h2{
     font-weight: 700;
     font-size: 150%;
     line-height: 28.8px;
     padding-bottom: 1rem;
 }
 
-.mensaje-final p{
+.msg__placeholder-image p{
     font-weight: 400;
     font-size: 100%;
     line-height: 24px;
+}
+
+.msg__converted{
+    height: 100%;
+    padding: 2rem 2rem 0;
+    display: none;
+    flex-direction: column;
+    
+}
+
+.msg__converted-text{
+    height: 80%;
+
+}
+
+#mensaje-final__texto{
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2rem;
+    padding: 0rem 0;
+    /* padding: 3rem 0 0; */
+    resize: none;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--dark-blue);
+    font-family: var(--inter);
+}
+
+#mensaje-final__texto:focus{
+    outline: none;
+}
+
+.msg__converted-copy{
+    /* position: relative; */
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#copiar{
+    width: 100%;
+    height: 53%;
+    border-radius: 24px;
+    border: 1px solid var(--dark-blue);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 20px;
+    background-color: transparent;
+    transition: 0.3s;
+}
+
+#copiar:hover{
+    background-color: var(--hover-transparent);
+    transition: 0.3s;
+}
+
+
+
+
+@media (max-width: 768px) and (min-width: 413px) {
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        flex-direction: column;
+        height: auto;
+        align-items: start;
+        padding-bottom: 3rem;
+    }
+    .logo img{
+        padding-right: 70%;
+    }
+    .encriptador {
+        padding: 3rem 0;
+        width: 100%;
+    }
+    .encriptador__texto textarea{
+        height: 40vh;
+    }
+    .msg{
+        width: 100%;
+    }
+    .msg__placeholder-image{
+        display: none;
+    }
+    .msg__placeholder-text{
+        padding: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+
+
+    .msg__converted{
+        padding: 2rem;
+        display: none;
+        height: auto;
+    }
+    .msg__converted-text{
+        height: 15vh;
+        padding-bottom: 2rem;
+
+    }
+    #mensaje-final__texto{
+        resize: block;
+        padding: 0;
+        height: 100%;
+    }
+
+
+
+    .msg__converted-copy{
+        height: auto;
+        position: static;
+    }
+    .alert{
+        font-size: 1.2rem;
+        padding-bottom: 2rem;
+        align-items: center;
+    }
+    .alert img{
+        width: 1.5rem;
+    }
+    #copiar{
+        padding: 1.5rem;
+    }
+    .msg__converted-copy{
+        width: 100%;
+    }
+}
+
+@media (max-width: 412px) {
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        flex-direction: column;
+        height: auto;
+        align-items: start;
+        padding: 1.25rem 1rem 2rem;
+
+    }
+    .logo img{
+        padding: 0;
+        padding-right: 70%;
+    }
+    
+    .encriptador {
+        padding: 3rem 0;
+        width: 100%;
+    }
+    .encriptador__texto textarea{
+        font-size: 2rem;
+    }
+    .encriptador__buttons{
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .encriptador__buttons button{
+        padding: 1.5rem;
+    }
+    .msg{
+        width: 100%;
+    }
+    .msg__placeholder-text{
+        padding: 2rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .msg__placeholder-image{
+        display: none;
+    }
+
+    .msg__converted{
+        padding: 2rem;
+        display: none;
+        height: auto;
+    }
+    .msg__converted-text{
+        height: 15vh;
+        padding-bottom: 2rem;
+
+    }
+    #mensaje-final__texto{
+        resize: block;
+        padding: 0;
+        height: 100%;
+    }
+
+    .alert{
+        font-size: 0.75rem;
+        padding-bottom: 2rem;
+        align-items: center;
+    }
+    .alert img{
+        width: 1rem;
+    }
+
+    #copiar{
+        padding: 1.5rem;
+    }
 }
